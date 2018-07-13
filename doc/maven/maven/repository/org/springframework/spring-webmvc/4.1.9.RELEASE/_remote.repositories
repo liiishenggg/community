@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Tue Jan 02 11:35:23 CST 2018
+spring-webmvc-4.1.9.RELEASE.jar>=
+spring-webmvc-4.1.9.RELEASE.pom>jeesite-repos=
+spring-webmvc-4.1.9.RELEASE.jar>jeesite-repos=
+spring-webmvc-4.1.9.RELEASE-sources.jar>jeesite-repos=

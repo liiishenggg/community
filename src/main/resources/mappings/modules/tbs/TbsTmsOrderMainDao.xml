@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.tbs.dao.TbsTmsOrderMainDao">
+    
+	<sql id="tbsTmsOrderMainColumns">
+		a.id AS "id",
+		a.start_area AS "startArea.id",
+		a.end_area AS "endArea.id",
+		a.shipper AS "shipper",
+		a.price AS "price",
+		a.take_address AS "takeAddress",
+		a.take_time AS "takeTime",
+		a.take_man AS "takeMan",
+		a.take_phone AS "takePhone",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag",
+		a2.name AS "startArea.name",
+		a3.name AS "endArea.name"
+	</sql>
+	
+	<sql id="tbsTmsOrderMainJoins">
+		LEFT JOIN sys_area a2 ON a2.id = a.start_area
+		LEFT JOIN sys_area a3 ON a3.id = a.end_area
+	</sql>
+    
+	<select id="get" resultType="TbsTmsOrderMain">
+		SELECT 
+			<include refid="tbsTmsOrderMainColumns"/>
+		FROM tbs_tms_order_main a
+		<include refid="tbsTmsOrderMainJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="TbsTmsOrderMain">
+		SELECT 
+			<include refid="tbsTmsOrderMainColumns"/>
+		FROM tbs_tms_order_main a
+		<include refid="tbsTmsOrderMainJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="startArea != null and startArea.id != null and startArea.id != ''">
+				AND a.start_area = #{startArea.id}
+			</if>
+			<if test="endArea != null and endArea.id != null and endArea.id != ''">
+				AND a.end_area = #{endArea.id}
+			</if>
+			<if test="shipper != null and shipper != ''">
+				AND a.shipper LIKE 
+					<if test="dbName == 'oracle'">'%'||#{shipper}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{shipper}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{shipper},'%')</if>
+			</if>
+			<if test="takeAddress != null and takeAddress != ''">
+				AND a.take_address = #{takeAddress}
+			</if>
+			<if test="takeTime != null and takeTime != ''">
+				AND a.take_time = #{takeTime}
+			</if>
+			<if test="takeMan != null and takeMan != ''">
+				AND a.take_man = #{takeMan}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="TbsTmsOrderMain">
+		SELECT 
+			<include refid="tbsTmsOrderMainColumns"/>
+		FROM tbs_tms_order_main a
+		<include refid="tbsTmsOrderMainJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO tbs_tms_order_main(
+			id,
+			start_area,
+			end_area,
+			shipper,
+			price,
+			take_address,
+			take_time,
+			take_man,
+			take_phone,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{id},
+			#{startArea.id},
+			#{endArea.id},
+			#{shipper},
+			#{price},
+			#{takeAddress},
+			#{takeTime},
+			#{takeMan},
+			#{takePhone},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE tbs_tms_order_main SET 	
+			start_area = #{startArea.id},
+			end_area = #{endArea.id},
+			shipper = #{shipper},
+			price = #{price},
+			take_address = #{takeAddress},
+			take_time = #{takeTime},
+			take_man = #{takeMan},
+			take_phone = #{takePhone},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE tbs_tms_order_main SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

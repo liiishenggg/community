@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Jan 25 16:53:40 CST 2018
+http\://repo.maven.apache.org/maven2/.lastUpdated=1516870420842
+@default-http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1516870402828
+http\://maven.aliyun.com/nexus/content/groups/public/.error=Could not transfer artifact com.google.code.findbugs\:jsr305\:jar\:2.0.1 from/to jeesite-repos (http\://maven.aliyun.com/nexus/content/groups/public)\: maven.aliyun.com

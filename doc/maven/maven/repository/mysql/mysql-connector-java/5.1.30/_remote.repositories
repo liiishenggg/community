@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Tue Jan 02 11:35:23 CST 2018
+mysql-connector-java-5.1.30.pom>jeesite-repos=
+mysql-connector-java-5.1.30.jar>jeesite-repos=
+mysql-connector-java-5.1.30.jar>=
+mysql-connector-java-5.1.30-sources.jar>jeesite-repos=

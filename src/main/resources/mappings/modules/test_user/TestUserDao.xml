@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.test_user.dao.TestUserDao">
+    
+	<sql id="testUserColumns">
+		a.id AS "id",
+		a.username AS "username",
+		a.password AS "password",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="testUserJoins">
+	</sql>
+    
+	<select id="get" resultType="TestUser">
+		SELECT 
+			<include refid="testUserColumns"/>
+		FROM test_user a
+		<include refid="testUserJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="TestUser">
+		SELECT 
+			<include refid="testUserColumns"/>
+		FROM test_user a
+		<include refid="testUserJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="username != null and username != ''">
+				AND a.username = #{username}
+			</if>
+			<if test="password != null and password != ''">
+				AND a.password = #{password}
+			</if>
+			<if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="TestUser">
+		SELECT 
+			<include refid="testUserColumns"/>
+		FROM test_user a
+		<include refid="testUserJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO test_user(
+			id,
+			username,
+			password,
+			del_flag
+		) VALUES (
+			#{id},
+			#{username},
+			#{password},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE test_user SET 	
+			username = #{username},
+			password = #{password}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE test_user SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

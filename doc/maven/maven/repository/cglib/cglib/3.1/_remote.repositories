@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Tue Jan 02 11:35:23 CST 2018
+cglib-3.1.jar>=
+cglib-3.1.pom>jeesite-repos=
+cglib-3.1.jar>jeesite-repos=
+cglib-3.1-sources.jar>jeesite-repos=

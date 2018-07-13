@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Tue Jan 02 11:35:23 CST 2018
+xmlpull-1.1.3.1.jar>=
+xmlpull-1.1.3.1.pom>jeesite-repos=
+xmlpull-1.1.3.1.jar>jeesite-repos=

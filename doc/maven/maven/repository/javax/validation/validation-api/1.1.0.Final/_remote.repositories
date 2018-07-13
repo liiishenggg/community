@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Tue Jan 02 11:35:23 CST 2018
+validation-api-1.1.0.Final.jar>=
+validation-api-1.1.0.Final.pom>jeesite-repos=
+validation-api-1.1.0.Final.jar>jeesite-repos=
+validation-api-1.1.0.Final-sources.jar>jeesite-repos=

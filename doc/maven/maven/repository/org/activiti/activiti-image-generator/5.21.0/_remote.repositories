@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Tue Jan 02 11:35:23 CST 2018
+activiti-image-generator-5.21.0.jar>=
+activiti-image-generator-5.21.0.pom>jeesite-repos=
+activiti-image-generator-5.21.0-sources.jar>jeesite-repos=
+activiti-image-generator-5.21.0.jar>jeesite-repos=

@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Tue Jan 02 11:35:23 CST 2018
+poi-ooxml-schemas-3.9.jar>=
+poi-ooxml-schemas-3.9.pom>jeesite-repos=
+poi-ooxml-schemas-3.9.jar>jeesite-repos=
