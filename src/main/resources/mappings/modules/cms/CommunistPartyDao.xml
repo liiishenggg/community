@@ -17,6 +17,7 @@
 	</sql>
 	
 	<sql id="communistPartyJoins">
+		JOIN sys_user u ON u.id = a.create_by
 	</sql>
     
 	<select id="get" resultType="CommunistParty">
@@ -40,6 +41,7 @@
 					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
 					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
 			</if>
+			${sqlMap.dsf}
 		</where>
 		<choose>
 			<when test="page !=null and page.orderBy != null and page.orderBy != ''">

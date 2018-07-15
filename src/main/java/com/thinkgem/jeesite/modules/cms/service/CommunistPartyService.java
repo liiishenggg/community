@@ -31,6 +31,7 @@ public class CommunistPartyService extends CrudService<CommunistPartyDao, Commun
 	}
 	
 	public Page<CommunistParty> findPage(Page<CommunistParty> page, CommunistParty communistParty) {
+		communistParty.getSqlMap().put("dsf", dataScopeFilter(communistParty.getCurrentUser(), "o", "u"));
 		return super.findPage(page, communistParty);
 	}
 	
