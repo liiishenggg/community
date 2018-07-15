@@ -34,7 +34,7 @@
 			<div style="border-top:1px solid #ddd;padding:10px;margin:25px 0;">发布者：${article.user.name} &nbsp; 点击数：${article.hits} &nbsp; 发布时间：<fmt:formatDate value="${article.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/> &nbsp; 更新时间：<fmt:formatDate value="${article.updateDate}" pattern="yyyy-MM-dd HH:mm:ss"/></div>
   	       </div>
   	     </div>
-	     <div class="row">
+<%-- 	     <div class="row">
 			<div id="comment" class="hide span10">
 				正在加载评论...
 			</div>
@@ -46,8 +46,10 @@
 				<li style="float:left;width:230px;"><a href="${ctx}/view-${relation[0]}-${relation[1]}${urlSuffix}">${fns:abbr(relation[2],30)}</a></li>
 			</c:forEach></ol>
 	  	  </div>
-  	    </div>
+  	    </div> --%>
   	  </div>
    </div>
+   <a href="#" onClick="javascript :history.back(-1);"><img src="${ctxStatic}/images/go-back.png" border="0" title="返回上一页"></a>
+   <input id="btnCancel" class="btn" type="button" value="返 回" onclick="history.go(-1)"/>
 </body>
 </html>

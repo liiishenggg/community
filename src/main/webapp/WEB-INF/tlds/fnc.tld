@@ -98,5 +98,12 @@
     <function-signature>java.util.List getLinkList(java.lang.String, java.lang.String, int, java.lang.String)</function-signature>
     <example>${fnc:getLinkList(siteId, categoryId, number, param)}</example>  
   </function>
+  <function>
+    <description>获取党员列表</description>
+    <name>getComPartyList</name>
+    <function-class>com.thinkgem.jeesite.modules.cms.utils.CmsUtils</function-class>
+    <function-signature>java.util.List getComPartyList(java.lang.String, int, java.lang.String)</function-signature>
+    <example>${fnc:getComPartyList(siteId,  number, param)}</example>  
+  </function>
   
 </taglib>

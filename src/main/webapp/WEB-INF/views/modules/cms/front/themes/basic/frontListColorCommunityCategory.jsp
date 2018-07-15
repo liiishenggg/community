@@ -40,7 +40,7 @@
 	   </div>
 	</div>
 	    <div>
-    <a href="#" onClick="javascript :history.back(-1);"><img src="${ctxStatic}/images/go_back.png" border="0" title="返回上一页"></a>
+    <a href="#" onClick="javascript :history.back(-1);"><img src="${ctxStatic}/images/go-back.png" border="0" title="返回上一页"></a>
     </div>
 </body>
 </html>

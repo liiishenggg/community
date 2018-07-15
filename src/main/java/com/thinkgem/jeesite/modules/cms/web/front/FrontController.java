@@ -330,6 +330,15 @@ public class FrontController extends BaseController{
 		return "modules/cms/front/themes/"+site.getTheme()+"/frontComPartyList";
 		
 	}
+	/**
+	 * 党组织
+	 */
+	@RequestMapping(value = "comm${urlSuffix}")
+	public String comm() {
+		System.out.println("进了党组织1");
+		return "modules/cms/front/themes/basic/frontComPartyList";
+		
+	}
 
     private String getTpl(Article article){
         if(StringUtils.isBlank(article.getCustomContentView())){

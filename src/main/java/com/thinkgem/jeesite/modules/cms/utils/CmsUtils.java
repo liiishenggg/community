@@ -7,26 +7,27 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
+
+import org.springframework.ui.Model;
+
 import com.google.common.collect.Lists;
 import com.thinkgem.jeesite.common.config.Global;
-import com.thinkgem.jeesite.common.utils.StringUtils;
-
 import com.thinkgem.jeesite.common.mapper.JsonMapper;
 import com.thinkgem.jeesite.common.persistence.Page;
 import com.thinkgem.jeesite.common.utils.CacheUtils;
 import com.thinkgem.jeesite.common.utils.SpringContextHolder;
+import com.thinkgem.jeesite.common.utils.StringUtils;
 import com.thinkgem.jeesite.modules.cms.entity.Article;
 import com.thinkgem.jeesite.modules.cms.entity.Category;
+import com.thinkgem.jeesite.modules.cms.entity.CommunistParty;
 import com.thinkgem.jeesite.modules.cms.entity.Link;
 import com.thinkgem.jeesite.modules.cms.entity.Site;
 import com.thinkgem.jeesite.modules.cms.service.ArticleService;
 import com.thinkgem.jeesite.modules.cms.service.CategoryService;
+import com.thinkgem.jeesite.modules.cms.service.CommunistPartyService;
 import com.thinkgem.jeesite.modules.cms.service.LinkService;
 import com.thinkgem.jeesite.modules.cms.service.SiteService;
-
-import javax.servlet.ServletContext;
-
-import org.springframework.ui.Model;
 
 /**
  * 内容管理工具类
@@ -38,6 +39,7 @@ public class CmsUtils {
 	private static SiteService siteService = SpringContextHolder.getBean(SiteService.class);
 	private static CategoryService categoryService = SpringContextHolder.getBean(CategoryService.class);
 	private static ArticleService articleService = SpringContextHolder.getBean(ArticleService.class);
+	private static CommunistPartyService communistPartyService = SpringContextHolder.getBean(CommunistPartyService.class);
 	private static LinkService linkService = SpringContextHolder.getBean(LinkService.class);
     private static ServletContext context = SpringContextHolder.getBean(ServletContext.class);
 
@@ -310,4 +312,30 @@ public class CmsUtils {
         	addViewConfigAttribute(model, ca.getViewConfig());
         }
     }
+    
+	/**
+	 * 获取党员列表
+	 * @param siteId 站点编号
+	 * @param number 获取数目
+	 * @param param  预留参数，例： key1:'value1', key2:'value2' ...
+	 * 			posid	推荐位（1：首页焦点图；2：栏目页文章推荐；）
+	 * 			image	文章图片（1：有图片的文章）
+	 *          orderBy 排序字符串
+	 * @return
+	 * ${fnc:getArticleList(category.site.id, not empty pageSize?pageSize:8, 'posid:2, orderBy: \"hits desc\"')}"
+	 */
+	public static List<CommunistParty> getComPartyList(String siteId,  int number, String param){
+		Page<CommunistParty> page = new Page<CommunistParty>(1, number, -1);
+		CommunistParty communistParty = new CommunistParty();
+		if (StringUtils.isNotBlank(param)){
+			@SuppressWarnings({ "rawtypes" })
+			Map map = JsonMapper.getInstance().fromJson("{"+param+"}", Map.class);
+			if (StringUtils.isNotBlank((String)map.get("orderBy"))){
+				page.setOrderBy((String)map.get("orderBy"));
+			}
+		}
+		communistParty.setDelFlag(Article.DEL_FLAG_NORMAL);
+		page = communistPartyService.findPage(page, communistParty);
+		return page.getList();
+	}
 }

@@ -22,6 +22,7 @@
 	</sql>
 	
 	<sql id="cmsSiteJoins">
+		JOIN sys_user u ON u.id = a.create_by
 	</sql>
     
 	<select id="get" resultType="Site">
@@ -45,6 +46,7 @@
 					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
 					<if test="dbName == 'mysql'">CONCAT('%', #{name}, '%')</if>
 			</if>
+			${sqlMap.dsf}
 		</where>
 		<choose>
 			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
