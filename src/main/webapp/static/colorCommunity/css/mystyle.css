@@ -1,0 +1,499 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+	margin: 0;
+	padding: 0
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+fieldset,
+img {
+	border: 0
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+	font-style: normal;
+	font-weight: normal
+}
+
+ol,
+ul {
+	list-style: none
+}
+
+caption,
+th {
+	text-align: left
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+	font-weight: normal
+}
+
+q:before,
+q:after {
+	content: '';
+}
+
+abbr,
+acronym {
+	border: 0;
+	font-variant: normal;
+}
+
+sup {
+	vertical-align: text-top;
+}
+
+sub {
+	vertical-align: text-bottom;
+}
+
+input,
+textarea,
+select {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	*font-size: 100%;
+}
+
+legend {
+	color: #000;
+}
+
+#yui3-css-stamp.cssreset {
+	display: none;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+li {
+	outline: none;
+}
+
+
+/*-----下拉框开始-----*/
+
+.select-div {
+	display: inline-block;
+	font-size: 14px;
+	box-sizing: border-box;
+	position: relative;
+	cursor: default;
+	border-radius: 5px;
+	outline: none;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	vertical-align: middle;
+	border-radius: 4px;
+	text-align: left;
+}
+
+.select-div[disabled] {
+	cursor: not-allowed;
+}
+
+.select-div>p {
+	width: 100%;
+	height: 30px;
+	border-radius: 4px;
+	box-sizing: border-box;
+	padding: 2px 30px 2px 6px;
+	overflow: hidden;
+	position: relative;
+	line-height: 24px;
+}
+
+.select-div[disabled]>p {
+	background: #eee !important;
+	color: #555 !important;
+}
+
+.select-div>p:active {
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5) inset;
+}
+
+.select-div[disabled]>p:active {
+	box-shadow: none;
+}
+
+.select-div>p>span {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	border-radius: 4px;
+}
+
+.select-div>p>i {
+	position: absolute;
+	right: 6px;
+	color: #777777;
+	font-size: 16px;
+	top: 50%;
+	margin-top: -9px;
+	color: #FFFFFF;
+}
+
+.select-div[disabled]>p>i {
+	color: #555 !important;
+}
+
+.select-div>ul {
+	box-sizing: border-box;
+	display: none;
+	position: absolute;
+	min-width: 100%;
+	margin-top: 1px;
+	border-radius: 3px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+	background: #FFFFFF;
+	z-index: 99;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.select-div>ul.open {
+	display: block;
+}
+
+.select-div>ul>li {
+	height: 26px;
+	line-height: 26px;
+	border-bottom: none;
+	white-space: nowrap;
+	box-sizing: border-box;
+	padding: 0px 20px 0px 5px;
+	overflow: hidden;
+}
+
+.select-div>ul>li:first-child {
+	border-radius: 3px 3px 0px 0px;
+}
+
+.select-div>ul>li:last-child {
+	border-radius: 0px 0px 3px 3px;
+}
+
+.select-div>ul>li:hover {
+	background: #F1F1F1;
+}
+
+.select-selected {
+	background: #379FFF !important;
+	color: #FFFFFF !important;
+}
+
+
+/*-----下拉框结束-----*/
+
+
+/*-----文件上传开始-----*/
+
+.file-btn-div {
+	width: 90px;
+	height: 30px;
+	display: inline-block;
+	position: relative;
+	z-index: 10;
+	line-height: 28px;
+	background: #379FFF;
+	box-sizing: border-box;
+	border-radius: 5px;
+	font-size: 13px;
+}
+
+.file-btn-div>input[type='file'] {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	cursor: pointer;
+	top: 0px;
+	left: 0px;
+	opacity: 0;
+}
+
+.start-upload-btn {
+	width: 90px;
+	height: 30px;
+	border-radius: 5px;
+	vertical-align: top;
+	font-size: 13px;
+	margin-left: 15px;
+}
+
+.upload-file-ul>li {
+	padding: 4px;
+	white-space: nowrap;
+	overflow: hidden;
+	font-size: 13px;
+}
+
+.upload-file-ul>li:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.upload-file-ul>li>span:first-child {
+	float: left;
+}
+
+.upload-file-ul>li>a {
+	color: #F15D91;
+	margin: 0px 15px;
+	float: left;
+}
+
+.upload-file-ul>li>span:last-child {
+	float: right;
+}
+
+
+/*-----文件上传结束-----*/
+
+
+/*-----弹出层开始-----*/
+
+.ll-screen {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.3);
+	top: 0;
+	left: 0;
+	z-index: 9;
+	transform-style: preserve-3d;
+	perspective: 500;
+	-webkit-perspective: 500;
+	transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+	-o-transition: all 0.3s linear;
+	-ms-transition: all 0.3s linear;
+	-webkit-transition: all 0.3s linear;
+}
+
+.ll-screen.min {
+	width: 140px;
+	height: 35px;
+	background: #FFFFFF !important;
+	left: 20px !important;
+	top: 100% !important;
+	margin-top: -50px;
+	border: 1px solid #ddd;
+	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.4);
+	border-radius: 3px;
+}
+
+.ll-screen.min .dia-title {
+	height: 35px;
+	line-height: 35px;
+	overflow: hidden;
+	font-size: 12px;
+	padding: 0px 5px;
+	word-break: break-all;
+	cursor: pointer;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	user-select: none;
+}
+
+.ll-screen.min .ll-dialog {
+	display: none;
+}
+
+.ll-dialog {
+	background: #fff;
+	position: absolute;
+	width: 80%;
+	height: 80%;
+	box-shadow: 1px 1px 50px rgba(0, 0, 0, .3);
+	border-radius: 4px;
+	overflow: hidden;
+	box-sizing: border-box;
+	transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+}
+
+.ll-dialog .dia-head {
+	border-bottom: 1px solid #EEEEEE;
+	overflow: hidden;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	padding: 0px 15px;
+	box-sizing: border-box;
+	background: #F8F8F8;
+	border-radius: 4px 4px 0px 0px;
+	user-select: none;
+}
+
+.ll-dialog .dia-head .dia-title {
+	height: 35px;
+	line-height: 35px;
+	border-radius: 4px 4px 0px 0px;
+	word-break: break-all;
+	white-space: nowrap;
+	font-size: 16px;
+}
+
+.ll-dialog .dia-head .dia-bars {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	padding-right: 15px;
+}
+
+.ll-dialog .dia-head .dia-bars span {
+	display: inline-block;
+	cursor: pointer;
+	vertical-align: top;
+}
+
+.ll-dialog .dia-head .dia-bars span:hover {
+	color: #86B7E5;
+}
+
+.ll-dialog .dia-head .dia-bars .dia-min {
+	font-size: 15px;
+	line-height: 32px;
+}
+
+.ll-dialog .dia-head .dia-bars .dia-max {
+	font-size: 14px;
+	line-height: 40px;
+	margin-left: 10px;
+}
+
+.ll-dialog .dia-head .dia-bars .dia-mid {
+	font-size: 14px;
+	line-height: 38px;
+	margin-left: 10px;
+}
+
+.ll-dialog .dia-head .dia-bars .dia-close {
+	font-size: 29px;
+	line-height: 35px;
+	margin-left: 5px;
+}
+
+.ll-dialog .dia-content {
+	border-bottom: 1px solid #EEEEEE;
+	overflow: auto;
+	position: absolute;
+	top: 36px;
+	bottom: 8px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.ll-dialog .dia-content .dia-iframe {
+	width: 100%;
+	height: 99%;
+	border: none;
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+}
+
+.ll-dialog .dia-foot {
+	overflow: hidden;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 8px;
+	background: #F9F9F9;
+	border-radius: 0px 0px 4px 4px;
+}
+
+.hide {
+	display: none !important;
+}
+
+
+/*-----弹出层结束-----*/
+
+/*-----滚动条开始-----*/
+.ll-scroll-body {
+	width: 100%;
+	height: 100%;
+}
+
+.ll-scroll-cotent {
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+
+.ll-scroll {
+	width: 8px;
+	background: transparent;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 100%;
+	opacity: 0;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.ll-scroll .ll-bars {
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background: #666;
+	border-radius: 10px;
+}
+
+/*-----滚动条结束-----*/
