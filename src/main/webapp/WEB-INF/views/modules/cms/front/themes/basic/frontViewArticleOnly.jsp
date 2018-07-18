@@ -49,7 +49,5 @@
   	    </div> --%>
   	  </div>
    </div>
-   <a href="#" onClick="javascript :history.back(-1);"><img src="${ctxStatic}/images/go-back.png" border="0" title="返回上一页"></a>
-   <input id="btnCancel" class="btn" type="button" value="返 回" onclick="history.go(-1)"/>
 </body>
 </html>
